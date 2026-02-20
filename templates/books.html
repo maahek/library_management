@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Books</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<h2 style="margin:20px;">Library Collection</h2>
+
+<div class="book-grid">
+
+{% for book in books %}
+<div class="book-card">
+
+    <div class="book-image">
+        {% if book[4] %}
+        <img src="/static/uploads/{{ book[4] }}">
+        {% else %}
+        <div class="no-image">No Image</div>
+        {% endif %}
+    </div>
+
+    <div class="book-info">
+        <h3>{{ book[1] }}</h3>
+        <p class="author">{{ book[2] }}</p>
+        <p class="desc">{{ book[5] }}</p>
+
+        <div class="book-footer">
+            <span class="qty">Available: {{ book[3] }}</span>
+        </div>
+    </div>
+
+</div>
+{% endfor %}
+
+</div>
+
+</body>
+</html>

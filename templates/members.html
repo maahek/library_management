@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Members</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<div class="layout">
+
+<div class="sidebar">
+
+<h2>📚 Library</h2>
+
+<ul>
+
+<li><a href="/home">Home</a></li>
+<li><a href="/add_book">Add Book</a></li>
+<li><a href="/issue_book">Issue Book</a></li>
+<li><a href="/return_book">Return Book</a></li>
+<li><a href="/members">Members</a></li>
+<li><a href="/reports">Reports</a></li>
+
+</ul>
+
+</div>
+
+
+<div class="main">
+
+<div class="card" style="width:700px;">
+
+<h2>Members</h2>
+<button>
+<a href="add_member" style="text-decoration: none; color: white;">Add Member</a>
+</button>
+<table style="width:100%;color:white;">
+
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Email</th>
+<th>Phone</th>
+</tr>
+
+{% for m in members %}
+
+<tr>
+
+<td>{{ m.id }}</td>
+<td>{{ m.name }}</td>
+<td>{{ m.email }}</td>
+<td>{{ m.phone }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Add Book</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<div class="layout">
+
+<div class="sidebar">
+
+<h2>📚 Library</h2>
+
+<ul>
+
+<li><a href="/home">Home</a></li>
+<li><a href="/add_book">Add Book</a></li>
+<li><a href="/issue_book">Issue Book</a></li>
+<li><a href="/return_book">Return Book</a></li>
+<li><a href="/members">Members</a></li>
+<li><a href="/reports">Reports</a></li>
+
+</ul>
+
+</div>
+
+
+<div class="main">
+
+<div class="card">
+
+<h2>Add New Book</h2>
+
+<form method="POST" enctype="multipart/form-data">
+
+<input name="name" placeholder="Book Name">
+
+<input name="author" placeholder="Author">
+
+<input name="quantity" placeholder="Quantity">
+
+<textarea name="description" placeholder="Description"></textarea>
+
+<input type="file" name="image">
+
+<button>Add Book</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

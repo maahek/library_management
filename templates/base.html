@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library System</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+        <h2>📚 Library</h2>
+
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/add_book">Add Book</a></li>
+            <li><a href="/issue_book">Issue Book</a></li>
+            <li><a href="/return_book">Return Book</a></li>
+            <li><a href="/members">Members</a></li>
+            <li><a href="/reports">Reports</a></li>
+        </ul>
+
+    </div>
+
+
+    <!-- Main content -->
+    <div class="main-content">
+
+        {% block content %}
+
+        {% endblock %}
+
+    </div>
+
+</div>
+
+</body>
+</html>

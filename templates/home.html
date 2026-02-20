@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Library Dashboard</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+        <h2>📚 Library</h2>
+
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/add_book">Add Book</a></li>
+            <li><a href="/issue_book">Issue Book</a></li>
+            <li><a href="/return_book">Return Book</a></li>
+            <li><a href="/members">Members</a></li>
+            <li><a href="/reports">Reports</a></li>
+        </ul>
+
+    </div>
+
+
+    <!-- MAIN CONTENT -->
+    <div class="main">
+
+        <div class="welcome">
+
+            <h1>Welcome to Library Management System</h1>
+
+            <p style="color: aquamarine;">
+                Manage books, members, issue and return books easily.
+            </p>
+
+
+            <!-- STATS -->
+            <div class="stats">
+
+                <div class="stat-card">
+                    <h2>{{ total_books }}</h2>
+                    <p>Total Books</p>
+                </div>
+
+                <div class="stat-card">
+                    <h2>{{ total_students }}</h2>
+                    <p>Total Members</p>
+                </div>
+
+                <div class="stat-card">
+                    <h2>{{ issued_count }}</h2>
+                    <p>Books Issued</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Return Book</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<div class="layout">
+
+<div class="sidebar">
+
+<h2>📚 Library</h2>
+
+<ul>
+
+<li><a href="/home">Home</a></li>
+<li><a href="/add_book">Add Book</a></li>
+<li><a href="/issue_book">Issue Book</a></li>
+<li><a href="/return_book">Return Book</a></li>
+<li><a href="/members">Members</a></li>
+<li><a href="/reports">Reports</a></li>
+
+</ul>
+
+</div>
+
+
+<div class="main">
+
+<div class="card" style="width:800px;">
+
+<h2>Return Books</h2>
+
+<table style="width:100%;color:white;">
+
+<tr>
+<th>Student</th>
+<th>Book</th>
+<th>Status</th>
+<th>Fine</th>
+<th>Action</th>
+</tr>
+
+{% for r in records %}
+
+<tr>
+
+<td>{{ r.student }}</td>
+<td>{{ r.book }}</td>
+<td>{{ r.status }}</td>
+<td>{{ r.fine }}</td>
+
+<td>
+
+{% if r.status=='Issued' %}
+
+<a href="/return_book/{{ r.id }}" style="background: #00c6ff; padding: 6px 12px; border-radius: 6px; color: white; text-decoration: none;">Return</a>
+
+{% endif %}
+
+</td>
+<td>$0</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

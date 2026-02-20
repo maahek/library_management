@@ -1,0 +1,107 @@
+{% extends 'admin_base.html' %}
+{% block title %}Admin Dashboard{% endblock %} 
+{% block header_title %}Dashboard{% endblock %}
+{% block header_subtitle %}Overview of library{% endblock %}
+
+{% block content %}
+<div class="row gy-3 mb-3">
+    <div class="col-md-4">
+        <div class="admin_card">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <div class="small text-muted">Total books</div>
+                    <div class="h3 mb-0">{{ total }}</div>
+                </div>
+                <div class="admin-card-icon bg-primary-subtle text-primary">
+                    <i class="fa fa-book"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="admin-card">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <div class="small text-muted">Available</div>
+                    <div class="h3 mb-0 text-success">{{ avail }}</div>
+                </div>
+                <div class="admin-card-icon bg-success-subtle text-success">
+                    <i class="fa fa-check-circle"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="admin-card">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <div class="small text-muted">Issued</div>
+                    <div class="h3 mb-0 text-warning">{{ issued }}</div>
+                </div>
+                <div class="admin-card-icon bg-warning-subtle text-warning">
+                    <i class="fa fa-arrow-up-right-from-square"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card p-3 shadow-sm">
+    <h5 class="mb-3">All books(Admin control)</h5>
+    <div class="table-responsive">
+        <table class="table table-sm aligb-middle">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>TITLE</th>
+                    <th>AUTHOR</th>
+                    <th>LANGUAGE</th>
+                    <th>GENRE</th>
+                    <th>STATUS</th>
+                    <th>ISSUED</th>
+                    <th>DUE DATE</th>
+                    <th>ACTIONS</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for b in books %}
+                <tr>
+                    <td>{{ b['id'] }}</td>
+                    <td>
+                        <a href="{{ url_for('books_detail', book_id=b['id'] )}}">{{ b['title'] }}</a>
+                    </td>
+                    <td>{{ b['author'] }}</td>
+                    <td>{{ b['language'] or '-' }}</td>
+                    <td>{{ b['genre'] or '-' }}</td>
+                    <td>
+                        {% if b['available'] %}
+                        <span class="badge bg-success">Available</span>
+                        {% else %}
+                        <span class="badge bg-warning test-dark">Issued</span>
+                        {% endif %}
+                    </td>
+                    <td>{{ b['issued_to'] or '-' }}</td>
+                    <td>{{ b['due_date'] or '-' }}</td>
+                    <td>
+                        {% if b['available'] %}
+                        <form action="{{ url_for('issue_book_route', book_id=b['id']) }}" method="post" class="d-inline">
+                            <input name="borrower" placeholder="Name" class="form-control form-control-sm mb-1" required>
+                            <button class="btn btn-sm btn-primary" type="submit">ISSUE</button>
+                        </form>
+                        {% else %}
+                        <form action="{{ url_for('return_book_route', book_id=b['id']) }}" method="post" class="d-inline">
+                            <button class="btn btn-sm btn-warning" type="submit">RETURN</button>
+                        </form>
+                        {% endif %}
+                        <form action="{{ url_for('delete_book_route', book_id=b['id']) }}" method="post" class="d-inline" onsubmit="return confirm('Delete this book?')">
+                            <button class="btn btn-sm btn-danger" type="submit">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

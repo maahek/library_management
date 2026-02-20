@@ -1,0 +1,235 @@
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI, Arial, sans-serif;
+}
+
+/* BODY BACKGROUND */
+body{
+
+background-image:url("library.jpeg");
+
+height:100vh;
+
+}
+
+.layout
+{
+    display: flex;
+}
+
+.main
+{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.welcome
+{
+    text-align: center;
+    color: white;
+    width: 100%;
+    height: 50%;
+    padding-top: 100px;
+    background:rgba(23, 23, 23, 0.6);
+}
+
+.stats
+{
+    display: flex;
+    gap: 25px;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.stat-card
+{
+    background: #4b2e2e;
+    padding: 25px 35px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+
+
+
+
+
+/* MAIN LAYOUT */
+
+/* SIDEBAR */
+.sidebar{
+
+width:250px;
+background:linear-gradient(180deg,#4b2e2e,#4b2e2e);
+color:white;
+padding:25px;
+
+}
+
+
+.sidebar h2{
+
+margin-bottom:30px;
+
+}
+
+
+.sidebar ul{
+
+list-style:none;
+
+}
+
+
+.sidebar ul li{
+
+margin:40px 0;
+
+}
+
+
+.sidebar ul li a{
+
+color:white;
+text-decoration:none;
+font-size:20px;
+
+}
+
+
+.sidebar ul li a:hover{
+
+color:#00e5ff;
+
+}
+
+
+
+/* MAIN CONTENT */
+
+
+
+
+/* CARD */
+.card{
+background: rgba(72, 46, 46, 0.65);
+padding:100px;
+
+border-radius:15px;
+
+color:white;
+
+min-width:700px;
+
+box-shadow:0px 0px 20px rgba(0,0,0,0.6);
+
+}
+
+
+
+/* HEADINGS */
+.card h1,
+.card h2{
+
+margin-bottom:15px;
+
+}
+
+
+
+/* INPUT FIELDS */
+input,
+select,
+textarea{
+
+width:100%;
+
+padding:10px;
+
+margin-top:10px;
+
+border:none;
+
+border-radius:5px;
+
+outline:none;
+
+}
+
+
+
+/* BUTTON */
+button{
+
+width:100%;
+
+padding:12px;
+
+margin-top:15px;
+
+border:none;
+
+border-radius:5px;
+
+background:#00bcd4;
+
+color:white;
+
+font-size:16px;
+
+cursor:pointer;
+
+}
+
+
+button:hover{
+
+background:#0097a7;
+
+}
+
+
+
+/* TABLE */
+table{
+
+margin-top:15px;
+
+border-collapse:collapse;
+
+width:100%;
+
+}
+
+
+th{
+
+background:#00bcd4;
+
+padding:10px;
+
+}
+
+
+td{
+
+padding:10px;
+
+background:rgba(255,255,255,0.1);
+
+text-align:center;
+
+}
+
+
+tr:hover{
+
+background:rgba(255,255,255,0.2);
+
+}

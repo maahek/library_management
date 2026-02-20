@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Issue Book</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<div class="layout">
+
+<div class="sidebar">
+
+<h2>📚 Library</h2>
+
+<ul>
+
+<li><a href="/home">Home</a></li>
+<li><a href="/add_book">Add Book</a></li>
+<li><a href="/issue_book">Issue Book</a></li>
+<li><a href="/return_book">Return Book</a></li>
+<li><a href="/members">Members</a></li>
+<li><a href="/reports">Reports</a></li>
+
+</ul>
+
+</div>
+
+
+<div class="main">
+
+<div class="card">
+
+<h2>Issue Book</h2>
+
+<form method="POST" action="/issue_book">
+
+<label>Select Student</label>
+
+<select name="student_id">
+<option value="">Choose Student</option>
+{% for s in students %}
+<option value="{{ s[0] }}">{{ s[1] }}</option>
+{% endfor %}
+
+</select>
+
+
+<label>Choose Book</label>
+
+<select name="book_id">
+<option value="">Choose Book</option>
+{% for b in books %}
+<option value="{{ b[0] }}">{{ b[1] }}</option>
+{% endfor %}
+
+</select>
+
+
+<button type="submit">Issue Book</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
