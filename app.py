@@ -1,10 +1,12 @@
-from flask import Flask, render_template,request, redirect
+from flask import Flask, render_template,request, redirect,session, flash
+from werkzeug.security import check_password_hash
 from datetime import datetime, timedelta
 from flask import jsonify
 import os
 import sqlite3
 
 app = Flask(__name__)
+app.secret_key = "library_secret_key"
 UPLOAD_FOLDER = "static/uploads"
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 def get_db():
@@ -13,6 +15,8 @@ def get_db():
 @app.route("/")
 @app.route("/home")
 def home():
+    if 'librarian' not in session:
+        return redirect('/login')
     db = get_db()
     cur = db.cursor()
 
@@ -48,6 +52,30 @@ def home():
         due_count=due_count,
         available_books=available_books
     )
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == "POST":
+        username = request.form['username']
+        password = request.form['password']
+
+        conn = sqlite3.connect('database.db')
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM librarian WHERE username=?",(username,))
+        user = cursor.fetchone()
+        conn.close()
+
+        if user and check_password_hash(user[2], password):
+            session['librarian'] = username
+            return redirect('/home')
+        else:
+           flash("Invalid Username or Password")
+    return render_template('login.html')
+
+@app.route('/logout')
+def logout():
+    session.pop('librarian', None)
+    return redirect('/login')
+
 @app.route("/reports")
 def reports():
     db = get_db()

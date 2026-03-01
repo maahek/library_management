@@ -4,8 +4,13 @@
 <meta charset="UTF-8">
 <title>Library Dashboard</title>
 <link rel="stylesheet" href="/static/css/style.css">
+<style>
+    body, html{
+        transform: none !important;
+        writing-mode: horizontal-tb !important;
+    }
+</style>
 </head>
-
 <body>
 
 <div class="layout">
@@ -22,6 +27,7 @@
             <li><a href="/return_book">Return Book</a></li>
             <li><a href="/members">Members</a></li>
             <li><a href="/reports">Reports</a></li>
+            <li><a href="#" onclick="openModal(); return false;">Log Out</a></li>
         </ul>
 
     </div>
@@ -64,6 +70,89 @@
     </div>
 
 </div>
+<div id="logoutModal" 
+     style="
+        display:none;
+        position:fixed;
+        top:0;
+        left:0;
+        width:100vw;
+        height:100vh;
+        background:rgba(0,0,0,0.6);
+        backdrop-filter:blur(4px);
+        z-index:9999;
+        justify-content:center;
+        align-items:center;
+        flex-direction:column;
+     ">
 
+    <div style="
+        background:#ffffff;
+        width:350px;
+        max-width:90%;
+        padding:25px;
+        border-radius:12px;
+        text-align:center;
+        box-shadow:0 15px 40px rgba(0,0,0,0.3);
+    ">
+
+        <h3 style="margin-bottom:10px;">Confirm Logout</h3>
+
+        <p style="margin-bottom:20px; color:#555;">
+            Are you sure you want to logout?
+        </p>
+
+        <div style="
+            display:flex;
+            justify-content:center;
+            gap:15px;
+            align-items: center;
+        ">
+            <button onclick="closeModal()" 
+                    style="
+                        width: 100px;
+                        height: 45px;
+                        padding:8px 0;
+                        margin-bottom: 12px;
+                        border:none;
+                        background:#804747;
+                        border-radius:8px;
+                        font-weight: 500;
+                        transition: 0.3s;
+                    " onmouseover="this.style.background='#cfcfcf'" onmouseout="this.style.background='#804747'">
+                No
+            </button>
+            
+            <a href="{{ url_for('logout') }}"
+               style="
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 45px;
+                    width: 100px;
+                    padding:8px 0;
+                    margin-bottom: 2px;
+                    background: #804747;
+                    color:white;
+                    text-decoration:none;
+                    border-radius:6px;
+                    font-weight: 600;
+                    transition: 0.3s;
+               " onmouseover="this.style.background='#c0392b'" onmouseout="this.style.background='#804747'">
+                Yes
+            </a>
+        </div>
+
+    </div>
+</div>
+<script>
+function openModal() {
+    document.getElementById("logoutModal").style.display = "flex";
+}
+
+function closeModal() {
+    document.getElementById("logoutModal").style.display = "none";
+}
+</script>
 </body>
 </html>

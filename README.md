@@ -63,9 +63,21 @@ A modern ""Library Management System"" built using ""Python, Flask, SQLite, HTML
 library_management/
 │
 ├── app.py
-├── database.db
+├── create_db.py
+├── check_db.py
+├── create_student_db.py
+├── insert_test_data.py
+├── issued_books.py
+├───create_librarian.py
+├── create_admin.py
+├── update_column.py
+├── update_issued_book.py
+├── requirement.txt
+├── README.md
+├── .gitignore
 │
 ├── templates/
+│   ├── login.html
 │   ├── home.html
 │   ├── add_book.html
 │   ├── issue_book.html
@@ -75,10 +87,18 @@ library_management/
 │   └── reports.html
 │
 ├── static/
-│   └── css/
-│       └── style.css
+│   ├── css/
+│   │   └── style.css
+│   │   ├── login.css
+|   |   ├───library.jpeg
+│   ├── js/
+│   │   └── chart.js
+|   |   ├── chart.min.js
+│   │
+│   └── uploads/
 │
-└── README.md
+└── screenshots/
+
 ```
 
 ---
@@ -120,6 +140,9 @@ http://127.0.0.1:5000
 
 ### Screenshots
 
+# Login
+![Login](screenshots/login.png)
+
 # Home
 ![Home](screenshots/home.png)
 
@@ -140,6 +163,9 @@ http://127.0.0.1:5000
 
 # Report
 ![Reports](screenshots/reports.png)
+
+# Logout
+![Logout](screenshots/logout.png)
 
 ### Home page
 
@@ -183,9 +209,10 @@ This project was developed to demonstrate skills in:
 
 ##  Future Improvements
 
-* Login system
-* Admin authentication
-* Search functionality
-* Book categories
+* Role-based user authentication
+* Fine management system for overdue books
+* Advanced search with filtering options
+* REST API support
+* Cloud deployment and Docker support
 
 
